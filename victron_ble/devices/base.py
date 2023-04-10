@@ -394,6 +394,11 @@ class Device(abc.ABC):
     def get_model_id(self, data: bytes) -> int:
         return self.PARSER.parse(data).model_id
 
+    def get_model_name(self) -> str:
+        return MODEL_ID_MAPPING.get(
+            self._model_id, f"<Unknown device: {self._model_id}>"
+        )
+
     def decrypt(self, data: bytes) -> bytes:
         container = self.PARSER.parse(data)
 
