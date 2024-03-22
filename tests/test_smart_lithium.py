@@ -70,20 +70,38 @@ class TestSmartLithium:
 
     def test_parse_4(self) -> None:
         actual = self.parse_decrypted(
-            b'\x00\x00\x00\x06\x00\x00G\xa3\xd1h,\x1a\x8dP\n\xcd\x96d\xf2\xf5\x0b\x85\xed\xe8h\xf6\x1d\xc1\xae\xa1\xce\x83')
+            b"\x00\x00\x00\x06\x00\x00G\xa3\xd1h,\x1a\x8dP\n\xcd\x96d\xf2\xf5\x0b\x85\xed\xe8h\xf6\x1d\xc1\xae\xa1\xce\x83"
+        )
         assert actual.get_balancer_status() == 0
         assert actual.get_battery_temperature() == 37
         assert actual.get_battery_voltage() == 26.4
-        assert actual.get_bms_flags() == 6 #?
+        assert actual.get_bms_flags() == 6  # ?
         assert actual.get_cell_voltages() == [
-            3.31, 3.30, 3.30, 3.30, 3.30, 3.29, 3.30, 3.30]
+            3.31,
+            3.30,
+            3.30,
+            3.30,
+            3.30,
+            3.29,
+            3.30,
+            3.30,
+        ]
 
     def test_parse_5(self) -> None:
         actual = self.parse_decrypted(
-            b'\x00\x00\x00\x06\x00\x00\xcc\xe5\x92\xb9\\.\x99{\x1a\xd0P%\xcf\xa5\xa6\xb2[\x91<T\x85\xee\x85by\xae')
+            b"\x00\x00\x00\x06\x00\x00\xcc\xe5\x92\xb9\\.\x99{\x1a\xd0P%\xcf\xa5\xa6\xb2[\x91<T\x85\xee\x85by\xae"
+        )
         assert actual.get_balancer_status() == 1
         assert actual.get_battery_temperature() == 40
         assert actual.get_battery_voltage() == 26.83
-        assert actual.get_bms_flags() == 6 #?
+        assert actual.get_bms_flags() == 6  # ?
         assert actual.get_cell_voltages() == [
-            3.36, 3.35, 3.35, 3.36, 3.35, 3.35, 3.35, 3.36]
+            3.36,
+            3.35,
+            3.35,
+            3.36,
+            3.35,
+            3.35,
+            3.35,
+            3.36,
+        ]

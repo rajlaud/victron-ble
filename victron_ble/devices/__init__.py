@@ -11,14 +11,11 @@ from victron_ble.devices.battery_monitor import (
 from victron_ble.devices.battery_sense import BatterySense, BatterySenseData
 from victron_ble.devices.dc_energy_meter import DcEnergyMeter, DcEnergyMeterData
 from victron_ble.devices.dcdc_converter import DcDcConverter, DcDcConverterData
-<<<<<<< HEAD
 from victron_ble.devices.smart_battery_protect import (
     SmartBatteryProtect,
     SmartBatteryProtectData,
 )
-=======
 from victron_ble.devices.smart_lithium import SmartLithium, SmartLithiumData
->>>>>>> 6a6e2d358c17cc6b6d6f49921b36ea2f7991d8b2
 from victron_ble.devices.solar_charger import SolarCharger, SolarChargerData
 from victron_ble.devices.vebus import VEBus, VEBusData
 
@@ -34,13 +31,10 @@ __all__ = [
     "DcDcConverterData",
     "DcEnergyMeter",
     "DcEnergyMeterData",
-<<<<<<< HEAD
     "SmartBatteryProtect",
     "SmartBatteryProtectData",
-=======
     "SmartLithium",
     "SmartLithiumData",
->>>>>>> 6a6e2d358c17cc6b6d6f49921b36ea2f7991d8b2
     "SolarCharger",
     "SolarChargerData",
     "VEBus",
@@ -81,17 +75,14 @@ def detect_device_type(data: bytes) -> Optional[Type[Device]]:
         pass
     elif mode == 0xB:  # MultiRS
         pass
-<<<<<<< HEAD
     elif mode == 0x9:  # SmartBatteryProtect
         return SmartBatteryProtect
     elif mode == 0x5:  # SmartLithium
         pass
-=======
     elif (
         mode == 0x5
     ):  # SmartLithium (commercially Lithium Battery Smart / LiFePO4 Battery Smart)
         return SmartLithium
->>>>>>> 6a6e2d358c17cc6b6d6f49921b36ea2f7991d8b2
     elif mode == 0x1:  # SolarCharger
         return SolarCharger
     elif mode == 0xC:  # VE.Bus
