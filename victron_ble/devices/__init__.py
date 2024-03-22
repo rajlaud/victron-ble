@@ -78,7 +78,7 @@ def detect_device_type(data: bytes) -> Optional[Type[Device]]:
     elif mode == 0x9:  # SmartBatteryProtect
         return SmartBatteryProtect
     elif mode == 0x5:  # SmartLithium
-        pass
+        return SmartLithium 
     elif (
         mode == 0x5
     ):  # SmartLithium (commercially Lithium Battery Smart / LiFePO4 Battery Smart)
